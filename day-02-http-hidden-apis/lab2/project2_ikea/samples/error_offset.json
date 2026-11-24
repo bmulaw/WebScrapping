@@ -1,0 +1,9 @@
+{
+ "status_code": 400,
+ "body": {
+  "status": 400,
+  "title": "Bad Request",
+  "detail": "Unrecognized parameter: offset",
+  "type": "about:blank"
+ }
+}

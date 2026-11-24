@@ -1,0 +1,84 @@
+{
+ "usergroup": "[]",
+ "testActivationTriggers": {},
+ "searchBox": {
+  "universal": [
+   {
+    "completion": {
+     "text": "chaise",
+     "metadata": "{\"prefix\":\"cha\",\"length\":\"3\",\"source\":\"events\"}"
+    },
+    "label": "Rechercher",
+    "metadata": "1;cha;1;chaise;static;",
+    "actionTokens": []
+   },
+   {
+    "completion": {
+     "text": "chaise bureau",
+     "metadata": "{\"prefix\":\"cha\",\"length\":\"3\",\"source\":\"events\"}"
+    },
+    "label": "Rechercher",
+    "metadata": "2;cha;2;chaise bureau;static;",
+    "actionTokens": []
+   },
+   {
+    "completion": {
+     "text": "chambre",
+     "metadata": "{\"prefix\":\"cha\",\"length\":\"3\",\"source\":\"events\"}"
+    },
+    "label": "Rechercher",
+    "metadata": "3;cha;3;chambre;static;",
+    "actionTokens": []
+   },
+   {
+    "completion": {
+     "text": "chaussure",
+     "metadata": "{\"prefix\":\"cha\",\"length\":\"3\",\"source\":\"events\"}"
+    },
+    "label": "Rechercher",
+    "metadata": "4;cha;4;chaussure;static;",
+    "actionTokens": []
+   },
+   {
+    "completion": {
+     "text": "chaise enfant",
+     "metadata": "{\"prefix\":\"cha\",\"length\":\"3\",\"source\":\"events\"}"
+    },
+    "label": "Rechercher",
+    "metadata": "5;cha;5;chaise enfant;static;",
+    "actionTokens": []
+   },
+   {
+    "completion": {
+     "text": "chauffeuse",
+     "metadata": "{\"prefix\":\"cha\",\"length\":\"3\",\"source\":\"events\"}"
+    },
+    "label": "Rechercher",
+    "metadata": "6;cha;6;chauffeuse;static;",
+    "actionTokens": []
+   },
+   {
+    "category": {
+     "name": "Chaises",
+     "key": "700676",
+     "url": "https://www.ikea.com/fr/fr/cat/chaises-700676/",
+     "imageUrl": "https://www.ikea.com/global/assets/range-categorisation/images/chairs-700676.jpeg"
+    },
+    "label": "Catégorie",
+    "metadata": "7;cha;1;fr/fr/cat/chaises-700676;static;",
+    "actionTokens": []
+   },
+   {
+    "category": {
+     "name": "Tables & chaises",
+     "key": "fu002",
+     "url": "https://www.ikea.com/fr/fr/cat/tables-chaises-fu002/",
+     "imageUrl": "https://www.ikea.com/global/assets/range-categorisation/images/tables-chairs-fu002.jpeg"
+    },
+    "label": "Catégorie",
+    "metadata": "8;cha;2;fr/fr/cat/tables-chaises-fu002;static;",
+    "actionTokens": []
+   }
+  ]
+ }
+}
