@@ -1,0 +1,221 @@
+{
+ "stock": 0,
+ "prod_qty": 12,
+ "variant": [
+  {
+   "id": 377136,
+   "name": "Solids: Inkstone - Variant ( XXS )",
+   "stock": 0,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "XXS"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 377137,
+   "name": "Solids: Inkstone - Variant ( XS )",
+   "stock": 1,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "XS"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 377138,
+   "name": "Solids: Inkstone - Variant ( S )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "S"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 377139,
+   "name": "Solids: Inkstone - Variant ( M )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "M"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 377140,
+   "name": "Solids: Inkstone - Variant ( L )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "L"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 377141,
+   "name": "Solids: Inkstone - Variant ( XL )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "XL"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 377142,
+   "name": "Solids: Inkstone - Variant ( XXL )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "XXL"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 391407,
+   "name": "Solids: Inkstone - Variant ( XXXL )",
+   "stock": 10,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "XXXL"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  }
+ ],
+ "options": [],
+ "color_group_details": [
+  {
+   "prod_id": 377127,
+   "color": "#FE828C",
+   "url_key": "solids-pinewood-oversized-polos",
+   "default_image": "1794671369_6217561.jpg",
+   "prod_qty": 12
+  },
+  {
+   "prod_id": 377119,
+   "color": "#FE828C",
+   "url_key": "solids-rosebud-oversized-polos",
+   "default_image": "1794645556_7857673.jpg",
+   "prod_qty": 12
+  },
+  {
+   "prod_id": 377111,
+   "color": "#FE828C",
+   "url_key": "solids-firetruck-red-oversized-polos",
+   "default_image": "1794669894_5130361.jpg",
+   "prod_qty": 12
+  },
+  {
+   "prod_id": 377135,
+   "color": "#FE828C",
+   "url_key": "solids-inkstone-oversized-polos",
+   "default_image": "1794830226_2248742.jpg",
+   "prod_qty": 12
+  }
+ ]
+}

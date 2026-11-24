@@ -1,0 +1,157 @@
+# Blocage section
+User-agent: *
+Disallow: */stocks/
+Disallow: /amp/
+Disallow: /assistant/
+Disallow: /avis/add/
+Disallow: /build/
+Disallow: /cart/
+Disallow: /Catalogue/
+Disallow: /coin-des-affaires/
+Disallow: /comment/add/
+Disallow: /cookie
+Disallow: */cint9147/
+Disallow: */c9148/
+Disallow: /en/add-to-basket/
+Disallow: /en/amp/
+Disallow: /en/cat/
+Disallow: /en/mb
+Disallow: /en/outlet-deals/
+Disallow: /en/search/
+Disallow: /es-es/amp/
+Disallow: /es-es/anadir-a-la-cesta/
+Disallow: /es-es/buscar/
+Disallow: /es-es/cat/
+Disallow: /es-es/mb
+Disallow: /es-es/oportunidades/
+Disallow: /fr-be/amp/
+Disallow: /fr-be/cat/
+Disallow: /fr-be/coin-des-affaires/
+Disallow: /fr-be/mise-au-panier/
+Disallow: /fr-be/mb
+Disallow: /fr-be/recherche/
+Disallow: /fr-ch/amp/
+Disallow: /fr-ch/cat/
+Disallow: /fr-ch/coin-des-affaires/
+Disallow: /fr-ch/mise-au-panier/
+Disallow: /fr-ch/mb
+Disallow: /fr-ch/recherche/
+Disallow: /fr-lu/amp/
+Disallow: /fr-lu/cat/
+Disallow: /fr-lu/coin-des-affaires/
+Disallow: /fr-lu/mise-au-panier/
+Disallow: /fr-lu/mb
+Disallow: /fr-lu/recherche/
+Disallow: /it-it/aggiungi-nel-carello/
+Disallow: /it-it/amp/
+Disallow: /it-it/angolo-degli-affari/
+Disallow: /it-it/cat/
+Disallow: /it-it/cerca/
+Disallow: /it-it/mb
+Disallow: /mise-au-panier/
+Disallow: /mb
+Disallow: /navigation/
+Disallow: /partenaire/
+Disallow: /ps/
+Disallow: /PUBLIC/
+Disallow: /recherche/
+Disallow: /review/
+Disallow: /Sales/
+Disallow: /stock-price/
+Disallow: /v4/
+
+Sitemap: https://www.ldlc.com/sitemap_index.xml
+Sitemap: https://www.ldlc.com/fr-be/sitemap_index.xml
+Sitemap: https://www.ldlc.com/fr-lu/sitemap_index.xml
+Sitemap: https://www.ldlc.com/fr-ch/sitemap_index.xml
+Sitemap: https://www.ldlc.com/es-es/sitemap_index.xml
+Sitemap: https://www.ldlc.com/it-it/sitemap_index.xml
+Sitemap: https://www.ldlc.com/en/sitemap_index.xml
+
+# Blocage agent
+User-agent: Fasterfox
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: boitho.com-dc
+Disallow: /
+
+User-agent: CazoodleBot
+Disallow: /
+
+User-agent: ConveraCrawler
+Disallow: /
+
+User-agent: discobot
+Disallow: /
+
+User-agent: Fasterfox
+Disallow: /
+
+User-agent: Gaisbot
+Disallow: /
+
+User-agent: heritrix
+Disallow: /
+
+User-agent: ichiro
+Disallow: /
+
+User-agent: IRLbot
+Disallow: /
+
+User-agent: kalooga
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: MLBot
+Disallow: /
+
+User-agent: MSIECrawler
+Disallow: /
+
+User-agent: Nutch
+Disallow: /
+
+User-agent: Ocelli
+Disallow: /
+
+User-agent: penthesilea
+Disallow: /
+
+User-agent: PhpDig
+Disallow: /
+
+User-agent: SearchDaimon.com-dc
+Disallow: /
+
+User-agent: ShopWiki
+Disallow: /
+
+User-agent: Snapbot
+Disallow: /
+
+User-agent: TurnitinBot
+Disallow: /
+
+User-agent: Twiceler
+Disallow: /
+
+User-agent: woozweb-monitoring
+Disallow: /
+
+User-agent: woriobot
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: Yeti
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /

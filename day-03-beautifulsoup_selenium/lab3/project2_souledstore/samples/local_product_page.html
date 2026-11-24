@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Buy __NAME__ Men Oversized T-Shirts Online - LOCAL COPY for check.py | The Souled Store</title>
+<!--
+  A LOCAL COPY of a product page of https://www.thesouledstore.com (no internet, no request to the shop).
+  It behaves like the real page:
+    - the server HTML has the title (<h1>) but NO price and NO sizes;
+    - JavaScript then asks the API for /pricing and /inventory (GET, like the real page) and draws them,
+      with the same HTML and the same classes (nonmembershipProductPrice, ul.sizelist > li.oval, outstock ...);
+    - the accordions: one section open at a time; a closed section has NO panel in the page.
+  The answers of the local API are real answers of the real API (samples/pricing_*.json, samples/inventory_*.json).
+-->
+<style>
+  body { font-family: sans-serif; margin: 0 auto; max-width: 900px; padding: 20px; }
+  .sizelist { display: flex; gap: 8px; list-style: none; padding: 0; }
+  .oval label { display: inline-block; border: 1px solid #999; padding: 8px 12px; cursor: pointer; }
+  .outstock label { text-decoration: line-through; color: #bbb; }
+  .total-stock { font-size: 11px; color: #e11b23; }
+  .card { border-bottom: 1px solid #ddd; }
+  .card-header button { background: none; border: 0; font-size: 16px; padding: 12px 0; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1 class="fbold mb-0 product-info-module__nOltAa__titleSize">__NAME__</h1>
+<div class="product-info-module__nOltAa__leftPrice pull-right d-flex" id="price-box"></div>
+<p>Please select a size.</p>
+<ul class="product-variant-module__V1ijmq__sizelist sizelist" id="sizes"></ul>
+<div id="accordion" class="accordiontabs"></div>
+
+<script>
+const SLUG = location.pathname.split("/").pop();
+const API = "/api/v2/product/" + SLUG;
+const PANELS = {"Product Description": "<div><span>This polo's got your back (and style game) covered. Crafted from breathable fabric that's soft as a summer breeze, it keeps you comfy all day long. Time to look and feel awesome!<br><br>Style Tip: Pair it with your fav denims and sneakers for a sporty vibe. Or swap jeans for chinos and loafers, add a statement watch, and voila - instant gentlemanly charm! Bonus points for shades and a confident strut.</span></div>", "Artist's Details": "<div><p dir=\"ltr\">The Souled Store was born out of a simple idea - love what you do and follow your soul! Thus, our goal is to give everyone something they'll love, something they can use to express themselves, and, simply put, something to put a smile on their face. So, whether it's superheroes like Superman, TV shows like F.R.I.E.N.D.S, pop culture, music, sports, or quirky, funny stuff you're looking for, we have something for everyone.</p> <p dir=\"ltr\">TSS Originals or The Souled Store Originals is our exclusive range of funny, funky, trendy and stylish designs. Designed by our kick-ass team of in-house designers, TSS Originals are some cool and quirky designs that help you speak your vibe.</p> </div>", "Product Details": "<div><div> <div><strong>Material &amp; Care:</strong></div> <div>100% Cotton</div> <div>Machine Wash</div> <div><br> <strong>Country of Origin:</strong> India (and proud)</div> <div><br> <strong>Manufactured &amp; Sold By:</strong></div> <div>The Souled Store Pvt. Ltd.</div> <div>24, Tantia Jogani Industrial Premises</div> <div>J.R. Boricha Marg</div> <div>Lower Parel (E)</div> <div>Mumbai -&nbsp;400 011<br> tel:+9122-68493328</div> <div><u>connect@thesouledstore.com</u> <div><u>Customer care no. +91 22-68493328</u></div> </div> </div> <div> <div>&nbsp;</div> </div></div>"};
+const TITLES = ["Product Details", "Product Description", "Artist's Details"];
+let open = "Product Details";
+
+function drawAccordion() {
+  document.getElementById("accordion").innerHTML = TITLES.map(title => `
+    <div class="card"><div class="card-header" role="tab"><h2 class="mb-0 accordianheading">
+      <button type="button" class="product-desc-tabs-module__r0BmqG__accordionTrigger ${title === open ? "" : "collapsed"}"
+              aria-expanded="${title === open}">${title}</button></h2></div>
+      ${title === open ? `<div class="card-block"></div>` : ""}</div>`).join("");
+  document.querySelectorAll("#accordion button").forEach(button => button.addEventListener("click", () => {
+    open = button.textContent.trim(); drawAccordion();
+  }));
+  setTimeout(() => {                          // like the real page: the panel is filled a moment after the click
+    const block = document.querySelector("#accordion .card-block");
+    if (block) block.innerHTML = PANELS[open] || "";
+  }, 300);
+}
+
+function drawSizes(inventory) {
+  document.getElementById("sizes").innerHTML = inventory.variant.map((v, i) => {
+    const size = v.attributes.find(a => a.name === "size").value, out = v.stock <= 0;
+    return `<li class="product-variant-module__V1ijmq__oval oval ${out ? "product-variant-module__V1ijmq__outstock outstock" : ""} product-variant-module__V1ijmq__unselectedSize unselectedSize">`
+      + `<input id="size_0_${i}" ${out ? 'disabled=""' : ""} type="radio" name="sub_prod_0">`
+      + `<label class="${out ? "product-variant-module__V1ijmq__strikethrough strikethrough" : ""}" for="size_0_${i}">`
+      + `<span class="${out ? "" : "product-variant-module__V1ijmq__sizetext sizetext"}">${size}</span></label>`
+      + `<section class="product-variant-module__V1ijmq__total-stock total-stock" style="display: ${!out && v.stock <= 5 ? "block" : "none"};">${v.stock} Left</section></li>`;
+  }).join("");
+}
+
+drawAccordion();
+fetch(API + "/pricing").then(r => r.ok ? r.json() : null).then(p => {
+  if (p) document.getElementById("price-box").innerHTML =
+    `<div class="product-info-module__nOltAa__nonmembershipProductPrice fbold"><span class="irupee">₹ </span>${p.price}</div>`;
+});
+fetch(API + "/inventory").then(r => r.ok ? r.json() : null).then(inv => { if (inv) drawSizes(inv); });
+</script>
+</body>
+</html>

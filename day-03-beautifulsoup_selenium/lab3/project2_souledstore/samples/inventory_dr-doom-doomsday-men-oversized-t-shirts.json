@@ -1,0 +1,256 @@
+{
+ "stock": 0,
+ "prod_qty": 12,
+ "variant": [
+  {
+   "id": 382561,
+   "name": "Dr.Doom: Doomsday - Variant ( XXS )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "XXS"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 382562,
+   "name": "Dr.Doom: Doomsday - Variant ( XS )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "XS"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 382563,
+   "name": "Dr.Doom: Doomsday - Variant ( S )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "S"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 382564,
+   "name": "Dr.Doom: Doomsday - Variant ( M )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "M"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 382565,
+   "name": "Dr.Doom: Doomsday - Variant ( L )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "L"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 382566,
+   "name": "Dr.Doom: Doomsday - Variant ( XL )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "XL"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 382567,
+   "name": "Dr.Doom: Doomsday - Variant ( XXL )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "XXL"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  },
+  {
+   "id": 382568,
+   "name": "Dr.Doom: Doomsday - Variant ( XXXL )",
+   "stock": 12,
+   "attributes": [
+    {
+     "name": "size",
+     "value": "XXXL"
+    },
+    {
+     "name": "color",
+     "value": ""
+    }
+   ],
+   "age_group": [
+    {
+     "age_group_id": 0,
+     "age_group_name": "0",
+     "min_age": 0,
+     "max_age": 0
+    }
+   ]
+  }
+ ],
+ "options": [],
+ "color_group_details": [
+  {
+   "prod_id": 382560,
+   "color": "#FE828C",
+   "url_key": "dr-doom-doomsday-men-oversized-t-shirts",
+   "default_image": "1794639231_8037365.jpg",
+   "prod_qty": 12
+  },
+  {
+   "prod_id": 383123,
+   "color": "#FE828C",
+   "url_key": "dr-doom-oblivion-men-oversized-t-shirts",
+   "default_image": "1794482763_7239359.jpg",
+   "prod_qty": 12
+  },
+  {
+   "prod_id": 387064,
+   "color": "#FE828C",
+   "url_key": "drdoom-thor-x-steve-men-oversized-t-shirts",
+   "default_image": "1794464210_6512529.jpg",
+   "prod_qty": 12
+  },
+  {
+   "prod_id": 362725,
+   "color": "#FE828C",
+   "url_key": "dr-doom-supreme-men-oversized-t-shirts",
+   "default_image": "1793806280_2154801.png",
+   "prod_qty": 12
+  },
+  {
+   "prod_id": 367688,
+   "color": "#FE828C",
+   "url_key": "marvel-loki-men-oversized-tshirt",
+   "default_image": "1794198997_6315811.jpg",
+   "prod_qty": 12
+  },
+  {
+   "prod_id": 388828,
+   "color": "#FE828C",
+   "url_key": "dr-doom-secret-wars-oversized-t-shirts",
+   "default_image": "1795010156_2225081.jpg",
+   "prod_qty": 12
+  },
+  {
+   "prod_id": 362162,
+   "color": "#FE828C",
+   "url_key": "marvel-thor-vs-doom-men-oversized-t-shirts",
+   "default_image": "1793806406_5307958.png",
+   "prod_qty": 12
+  },
+  {
+   "prod_id": 380805,
+   "color": "#FE828C",
+   "url_key": "venom-symbiosis-oversized-t-shirts",
+   "default_image": "1794053376_1215158.jpg",
+   "prod_qty": 12
+  },
+  {
+   "prod_id": 365351,
+   "color": "#FE828C",
+   "url_key": "dr-doom-villain-men-oversized-hoodies",
+   "default_image": "1794405040_3603259.jpg",
+   "prod_qty": 12
+  }
+ ]
+}

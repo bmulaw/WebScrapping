@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+output/
+# cache of downloaded pages, crawl state, Parquet files
+data/
+# lab3+: your API keys. NEVER commit them (copy .env.example to .env)
+.env
+.env.example
+.DS_Store
