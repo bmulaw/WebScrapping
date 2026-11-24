@@ -120,7 +120,6 @@ def search_page(session, category, country, page=1, page_size=20, fields=SEARCH_
     Raise an exception for an error status.
     """
     # ----- Exercise 3: search_page -----
-
     url = API + "/search"
     response = session.get(url, params={
         "categories_tags_en": category,
