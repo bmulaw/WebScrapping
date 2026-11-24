@@ -226,7 +226,22 @@ def full_text_search(session, query, page_size=10):
         full_text_search(session, "nutella", 5)[1] -> {"code": "0098008952506", "name": "Nutella", "brands": "Nutella"}
     """
     # ----- Exercise 7: full_text_search -----
-    raise NotImplementedError("Exercise 7 (full_text_search): not done yet")
+    try:
+        response = session.get(SEARCH_A_LICIOUS, params={
+            "query": query,
+            "page_size": page_size}, timeout=TIMEOUT)
+    except:
+        return None
+    
+    data = response.json()
+    res = []
+    for hit in data['hits']:
+        res.append({
+            "code": hit['code'],
+            "name": hit['product_name'] if hit['product_name'] else None,
+            "brands": ",".join(hit["brands"]) if hit["brands"] else ""
+        })
+    return res
 
 
 def build_edit_request(barcode, changes, user_id, password):
