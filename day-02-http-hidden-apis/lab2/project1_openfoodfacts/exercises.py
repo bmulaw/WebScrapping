@@ -71,7 +71,6 @@ def make_session(user_agent=USER_AGENT, retries=3):
             respect_retry_after_header=True)
     session.mount("https://", HTTPAdapter(max_retries=retry))
     return session
-    # raise NotImplementedError("Exercise 1 (make_session): not done yet")
 
 
 def get_product(session, barcode, fields=PRODUCT_FIELDS):
@@ -106,7 +105,6 @@ def get_product(session, barcode, fields=PRODUCT_FIELDS):
     return res
 
     # 404 -> None ; then response.raise_for_status() ; then look at data["status"]
-    # raise NotImplementedError("Exercise 2 (get_product): not done yet")
 
 
 def search_page(session, category, country, page=1, page_size=20, fields=SEARCH_FIELDS):
@@ -141,9 +139,6 @@ def search_page(session, category, country, page=1, page_size=20, fields=SEARCH_
     data = response.json()
     res = { "products" : [data['products'][i] for i in range(page_size)]}
     return res
-
-
-    # raise NotImplementedError("Exercise 3 (search_page): not done yet")
 
 
 def number_of_pages(count, page_size):
@@ -314,9 +309,9 @@ def jsonld_types(html):
 
 
 def title_from_html(html):
-    """The product page title <h1> "Nutella – Ferrero – 400.0 g" -> {"name": ..., "brand": ..., "quantity": ...}.
+    """The product page title <h1> "Nutella - Ferrero - 400.0 g" -> {"name": ..., "brand": ..., "quantity": ...}.
 
-    The parts are separated by " – " (a long dash with spaces). A missing part -> None. No <h1> -> all None.
+    The parts are separated by " - " (a long dash with spaces). A missing part -> None. No <h1> -> all None.
 
         title_from_html(<the Nutella page>) -> {"name": "Nutella", "brand": "Ferrero", "quantity": "400.0 g"}
 
