@@ -63,12 +63,12 @@ def make_session(user_agent=USER_AGENT, retries=3):
         "User-Agent": user_agent,
         "Accept": "application/json"
     })
-    Retry(total=retries,
+    retry = Retry(total=retries,
             backoff_factor=1, 
             status_forcelist=[429, 500, 502, 503, 504], 
             allowed_methods=["GET"], 
             respect_retry_after_header=True)
-    session.mount("https://", HTTPAdapter(max_retries=retries))
+    session.mount("https://", HTTPAdapter(max_retries=retry))
     return session
     # raise NotImplementedError("Exercise 1 (make_session): not done yet")
 
@@ -86,9 +86,26 @@ def get_product(session, barcode, fields=PRODUCT_FIELDS):
         get_product(session, "0000000000000")                   -> None
     """
     # ----- Exercise 2: get_product -----
-    # session.get(url, params={"fields": ...}, timeout=TIMEOUT)
+    url = API + f"/product/{barcode}"
+    try:
+        response = session.get(url, params={"fields": ",".join(fields), "barcode": barcode}, timeout=TIMEOUT)
+    except:
+        return None
+    
+    if not response.ok or response.status_code != 200:
+        response.raise_for_status()
+        return None
+
+    data = response.json()
+    if data['status'] == 0:
+        return None
+
+    res = { }
+    for field in fields: res[field] = data['product'].get(field)
+    return res
+
     # 404 -> None ; then response.raise_for_status() ; then look at data["status"]
-    raise NotImplementedError("Exercise 2 (get_product): not done yet")
+    # raise NotImplementedError("Exercise 2 (get_product): not done yet")
 
 
 def search_page(session, category, country, page=1, page_size=20, fields=SEARCH_FIELDS):
@@ -103,7 +120,26 @@ def search_page(session, category, country, page=1, page_size=20, fields=SEARCH_
     Raise an exception for an error status.
     """
     # ----- Exercise 3: search_page -----
-    raise NotImplementedError("Exercise 3 (search_page): not done yet")
+
+    url = API + "/search"
+    response = session.get(url, params={
+        "categories_tags_en": category,
+        "countries_tags_en": country, 
+        "fields":  ",".join(fields),
+        "page": page,
+        "page_size": page_size,
+        "sort_by": "unique_scans_n",
+        }, timeout=TIMEOUT)
+    if not response.ok or response.status_code != 200:
+            response.raise_for_status()
+            return None
+    data = response.json()
+    res = { "products" : [data['products'][i] for i in range(page_size)]}
+
+    return res
+
+
+    # raise NotImplementedError("Exercise 3 (search_page): not done yet")
 
 
 def number_of_pages(count, page_size):
