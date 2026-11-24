@@ -13,6 +13,7 @@ from urllib3.util.retry import Retry
 import pandas as pd
 import requests
 from requests import session
+from pathlib import Path
 
 
 # ==============================================================================
@@ -191,9 +192,27 @@ def download_image(session, url, path, chunk_size=64 * 1024):
     Raise an exception for an error status.
     """
     # ----- Exercise 6: download_image -----
-    # with session.get(url, stream=True, timeout=TIMEOUT) as response: ...
-    # with open(path, "wb") as file: file.write(chunk)
-    raise NotImplementedError("Exercise 6 (download_image): not done yet")
+    if not url: return 0
+
+    # found code here: https://stackoverflow.com/questions/47518669/create-new-folder-with-pathlib-and-write-files-into-it
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    
+    try:
+        c = 0
+        with session.get(url, stream=True, timeout=TIMEOUT) as response:
+            response.raise_for_status()
+
+            with open(path, "wb") as file:
+                for chunk in response.iter_content(chunk_size=chunk_size):
+                    if chunk:
+                        file.write(chunk)
+                        c += len(chunk)
+        return c
+    
+    except:
+        raise Exception("Cannot open and download image")
+
 
 
 def full_text_search(session, query, page_size=10):
