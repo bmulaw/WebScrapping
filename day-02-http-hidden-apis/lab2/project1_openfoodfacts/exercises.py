@@ -129,12 +129,13 @@ def search_page(session, category, country, page=1, page_size=20, fields=SEARCH_
         "page_size": page_size,
         "sort_by": "unique_scans_n",
         }, timeout=TIMEOUT)
+
     if not response.ok or response.status_code != 200:
             response.raise_for_status()
             return None
+
     data = response.json()
     res = { "products" : [data['products'][i] for i in range(page_size)]}
-
     return res
 
 
@@ -152,7 +153,7 @@ def number_of_pages(count, page_size):
         number_of_pages(0, 20)    -> 0
     """
     # ----- Exercise 4: number_of_pages -----
-    raise NotImplementedError("Exercise 4 (number_of_pages): not done yet")
+    return math.ceil(count / page_size) if page_size != 0 else 0
 
 
 def search_all(session, category, country, max_pages=5, page_size=20, delay=DELAY_SECONDS):
