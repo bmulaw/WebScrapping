@@ -121,14 +121,17 @@ def search_page(session, category, country, page=1, page_size=20, fields=SEARCH_
     """
     # ----- Exercise 3: search_page -----
     url = API + "/search"
-    response = session.get(url, params={
-        "categories_tags_en": category,
-        "countries_tags_en": country, 
-        "fields":  ",".join(fields),
-        "page": page,
-        "page_size": page_size,
-        "sort_by": "unique_scans_n",
-        }, timeout=TIMEOUT)
+    try:
+        response = session.get(url, params={
+            "categories_tags_en": category,
+            "countries_tags_en": country, 
+            "fields":  ",".join(fields),
+            "page": page,
+            "page_size": page_size,
+            "sort_by": "unique_scans_n",
+            }, timeout=TIMEOUT)
+    except:
+        return None
 
     if not response.ok or response.status_code != 200:
             response.raise_for_status()
@@ -167,7 +170,17 @@ def search_all(session, category, country, max_pages=5, page_size=20, delay=DELA
     Return one list with the products of all the pages read.
     """
     # ----- Exercise 5: search_all -----
-    raise NotImplementedError("Exercise 5 (search_all): not done yet")
+    res = []
+    for page in range(1, max_pages+1):
+        time.sleep(delay)
+        data = search_page(session, category, country, page, page_size)
+        if not data:
+            return res
+        if len(data['products']) == 0 or number_of_pages(len(data['products']), page_size) == 0:
+            return res
+        for product in data['products']:
+            res.append(product)
+    return res
 
 
 def download_image(session, url, path, chunk_size=64 * 1024):
