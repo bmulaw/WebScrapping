@@ -1,0 +1,49 @@
+# ESILV_LAB: one uv project for all advanced labs (lab2 ... lab6).
+#   One Python (3.12), one lock file (uv.lock), one environment (.venv) for every lab.
+#
+#   uv sync                     install the packages of ALL labs into ESILV_LAB/.venv
+#   uv sync --group bonus       lab6 project only: also install the bonus packages (workers, API, dashboard)
+
+[project]
+name = "esilv-lab-advanced"
+version = "1.0.0"
+description = "ESILV advanced web scraping labs: hidden APIs, Selenium + CDP, LLM extraction, async crawling, production pipelines."
+requires-python = ">=3.11"
+dependencies = [
+    # lab2 · HTTP and hidden APIs
+    "requests==2.34.2",         # download pages (refresher)
+    "httpx[http2]==0.28.1",     # modern HTTP client: sync + async, HTTP/2 (lab2, lab4)
+    "beautifulsoup4==4.15.0",   # read HTML (refresher)
+    "lxml==6.1.3",              # fast HTML/XML parser, used by Beautiful Soup and parsel
+    "parsel==1.12.1",           # CSS selectors and XPath on an HTML string (lab1 skills)
+    "extruct==0.18.0",          # embedded data: JSON-LD, microdata, OpenGraph
+    "pandas==3.1.1",            # tables
+    # lab3 · browsers and AI extraction
+    "selenium==4.53.0",         # drive a real browser, Chrome DevTools Protocol (CDP)
+    "firecrawl==4.57.0",        # Firecrawl Python SDK (web pages -> markdown / JSON)
+    "anthropic==2.10.0",        # LLM structured extraction with a JSON schema
+    "python-dotenv==1.2.4",     # read the API keys from a .env file
+    # lab4 · scaling up
+    "tenacity==9.2.1",          # retries with exponential backoff
+    "flask==3.1.3",             # the small rate-limited test site you scrape politely
+    # lab5 · production pipeline
+    "pymongo==4.20.0",          # MongoDB
+    "pydantic==2.14.3",         # validate every record against a schema
+    "pytest==9.2.0",            # test your parsers on saved HTML
+    "respx==0.23.1",            # fake httpx responses in tests (no internet needed)
+    "prefect==3.9.3",           # schedule the pipeline: retries, logs, runs history
+    "duckdb==2.0.0",            # SQL on Parquet files
+    "pyarrow==26.0.1",          # write / read Parquet
+    # all labs
+    "ipykernel==7.4.0",         # run the notebooks in VS Code / Kiro / Jupyter
+]
+
+[dependency-groups]
+# lab6 project bonus options. Install with: uv sync --group bonus
+bonus = [
+    "redis==8.1.0",             # job queue backend (start it with: docker compose --profile redis up -d)
+    "rq==3.0.0",                # workers that share the crawl work through Redis
+    "fastapi==0.150.0",         # serve your data as an API
+    "uvicorn==0.54.0",          # run the FastAPI app
+    "streamlit==1.67.0",        # quick dashboard on your data
+]

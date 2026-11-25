@@ -1,0 +1,56 @@
+# The services for ESILV_LAB. Python runs on your laptop (with uv), not in Docker.
+#
+#   docker compose up -d                     start MongoDB only (lab5, lab6)
+#   docker compose --profile redis up -d     lab6 bonus: also start Redis (job queue for workers)
+#   docker compose --profile grid up -d      lab6 bonus: also start a Selenium Grid (Chrome) on port 4444
+#   docker compose ps                        is it running? (STATUS shows "healthy")
+#   docker compose stop                      stop everything (the data is kept)
+#   docker compose down -v                   remove everything AND delete all its data
+#
+# Port 27017 is also used by the ESILV_LAB MongoDB: if it is running, stop it first
+# (in ESILV_LAB: docker compose stop).
+
+name: esilv-lab-advanced
+
+services:
+  mongo:
+    image: mongo:9.0
+    container_name: esilv-adv-mongo
+    ports:
+      - "127.0.0.1:27017:27017"   # only this laptop can connect (no password is set)
+    volumes:
+      - mongo-data:/data/db        # the data survives restarts
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  redis:
+    image: redis:8
+    container_name: esilv-adv-redis
+    profiles: ["redis"]
+    ports:
+      - "127.0.0.1:6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  selenium:
+    image: selenium/standalone-chrome:latest
+    container_name: esilv-adv-selenium
+    profiles: ["grid"]
+    shm_size: 2gb                  # Chrome crashes with the small default /dev/shm
+    ports:
+      - "127.0.0.1:4444:4444"      # webdriver.Remote("http://localhost:4444")
+      - "127.0.0.1:7900:7900"      # watch the browser: http://localhost:7900 (password: secret)
+    environment:
+      - SE_NODE_MAX_SESSIONS=4     # 4 browsers in parallel
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+
+volumes:
+  mongo-data:
